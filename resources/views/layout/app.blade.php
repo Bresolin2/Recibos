@@ -21,7 +21,8 @@
 </head>
 
 <body class="bg-gray">
-    <div class="">
+    <div class="container mx-auto px-4 py-8">
+        logout
         @yield('content')
     </div>
 </body>
