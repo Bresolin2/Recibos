@@ -22,7 +22,10 @@
 
 <body class="bg-gray">
     <div class="container mx-auto px-4 py-8">
-        logout
+        <form action="{{route('logout')}}" method="POST">
+            @csrf
+        <button type="submit" class="btn btn-danger">Logout</button>
+    </form>
         @yield('content')
     </div>
 </body>
