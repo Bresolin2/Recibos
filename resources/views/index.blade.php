@@ -6,11 +6,18 @@
         <div class="container-fluid">
             <input type="image" src="{{ url('../images/logo.png') }}" href="{{route('index')}}"></input>
         </div>
+        <form action="{{ route('logout') }}" method="POST">
+            @csrf
+            <button type="submit" class="btn btn-danger me-2"><i class="bi bi-box-arrow-left"></i></button>
+        </form>
         <a href="{{ route('index') }}">
-            <button class="btn btn-success me-2">Home</button>
+            <button class="btn btn-success me-2"><i class="bi bi-house"></i></button>
         </a>
         <a href="https://infus.inf.br/">
-            <button class="btn btn-info me-2">Informações</button>
+            <button class="btn btn-info me-2"><i class="bi bi-info-lg"></i></button>
+        </a>
+        <a href="{{ route('register') }}">
+            <button class="btn btn-primary"><i class="bi bi-plus-square"></i></button>
         </a>
     </nav>
 
@@ -18,8 +25,8 @@
     <div class="container">
         <div class="container-fluid">
             <div class="row">
-                <form class="form-inline" id="frmFiltro" name="frmFiltro" action="{{ route('search') }}" method="POST"
-                    style="width: 100%;">
+                
+                <form class="form-inline" id="frmFiltro" name="frmFiltro" action="{{ route('search') }}" method="POST" style="width: 100%;">
                     @csrf
                     <div class="input-group mb-2">
                         <select required form="frmFiltro" id="select_filtro" name="select_filtro" data-column="0"
@@ -29,6 +36,8 @@
                             <option value="2">Nome</option>
                             <option value="3">Documento</option>
                             <option value="4">E-mail</option>
+                            <option value="6">Data de Cadastro</option>
+                            <option value="7">Data de Vencimento</option>
                             <option value="5">Premium</option>
                         </select>
                         <input required form="frmFiltro" id="filtro" name="filtro" type="text" class="form-control"
@@ -48,6 +57,8 @@
                         <th scope="col">Nome</th>
                         <th scope="col">Documento</th>
                         <th scope="col">E-mail</th>
+                        <th scope="col">Data de Cadastro</th>
+                        <th scope="col">Data de Vencimento</th>
                         <th scope="col">Premium</th>
                         <th scope="col">Detalhes</th>
                     </tr>
@@ -59,6 +70,8 @@
                             <td>{{ $cliente->nome }} </td>
                             <td> {{ $cliente->documento }}</td>
                             <td>{{ $cliente->email }}</td>
+                            <td>{{ $cliente->data_cadastro }}</td>
+                            <td>{{ $cliente->Permissao->data_validade ?? '-'}}</td>
                             <td>
                                 @php
                                  echo ((isset($cliente->Permissao->ativo)) && ($cliente->Permissao->ativo === 1)) ? '<i class="fs-3 mb-2 bi bi-check2-square" width="16" height="16"></i>' : ''; 

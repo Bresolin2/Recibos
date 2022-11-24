@@ -65,6 +65,8 @@ class ClienteController extends Controller
                     ->where('maxirecibo_permissions.ativo', $filtro)
                     ->paginate($paginacao);
                 break;
+            case 6:
+                $clientes = Cliente::where('data_cadastro', 'LIKE', "%{$filtro}%")->paginate($paginacao);
         }
         return view('index', compact('clientes'));
     }
