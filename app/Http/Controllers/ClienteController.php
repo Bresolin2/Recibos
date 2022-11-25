@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Cliente;
 use App\Models\Permissao;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\DB;
@@ -14,6 +15,19 @@ class ClienteController extends Controller
     {
         $clientes = Cliente::paginate(10);
         return view('index', compact('clientes'));
+    }
+
+    public function registro() 
+    {
+        return view('registro');
+    }
+
+    public function store(Request $request) 
+    {
+        // dd($request->all());
+        User::create($request->all());
+
+        return redirect('cliente');
     }
 
     public function show($id)
@@ -69,5 +83,5 @@ class ClienteController extends Controller
                 $clientes = Cliente::where('data_cadastro', 'LIKE', "%{$filtro}%")->paginate($paginacao);
         }
         return view('index', compact('clientes'));
-    }
+    }      
 }

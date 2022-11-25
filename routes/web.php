@@ -8,7 +8,8 @@ Route::get('/cliente', [ClienteController::class, 'index'])->name('index');
 Route::get('/cliente/{id}', [ClienteController::class, 'show'])->name('show');
 Route::post('/cliente/search', [ClienteController::class, 'search'])->name('search');
 Route::post('/cliente/licenca', [ClienteController::class, 'licenca'])->name('licenca');
-Route::get('/registro', [ClienteController::class, 'registro'])->name('registro');
+Route::get('/registrar', [ClienteController::class, 'registro'])->name('registro');
+Route::post('/registrar', [ClienteController::class, 'store'])->name('registro');
 Route::get('/', [ClienteController::class, 'index']);
 });
 
