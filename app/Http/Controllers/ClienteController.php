@@ -20,15 +20,17 @@ class ClienteController extends Controller
 
     public function registro() 
     {
+        $senha = Hash::make();
+        return($senha);
         return view('registro');
     }
 
     public function store(Request $request) 
     {
         // dd($request->all());
-        User::create($request->all());
-        $senha = Hash::make($request->senha);
-        
+        // $senha = Hash::make($request->senha);
+        User::create($request->all($senha));
+       
 
         return redirect('cliente');
     }
