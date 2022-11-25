@@ -8,6 +8,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 class ClienteController extends Controller
 {
@@ -26,6 +27,8 @@ class ClienteController extends Controller
     {
         // dd($request->all());
         User::create($request->all());
+        $senha = Hash::make($request->senha);
+        
 
         return redirect('cliente');
     }

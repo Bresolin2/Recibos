@@ -10,13 +10,13 @@
         <input type="text" name="name" id="name" placeholder="Nome"><br><br>
 
         <label>Email:</label>
-        <input type="text" name="email" id="email" placeholder="E-mail"><br><br>
+        <input type="text" name="email" id="email" placeholder="E-mail" required><br><br>
 
         <label>Senha:</label>
-        <input type="password" name="password" id="password" placeholder="Senha" bcrypt><br><br>
+        <input type="password" name="password" id="password" placeholder="Senha" bcrypt required><br><br>
 
         <label>Confirmar senha:</label>
-        <input type="password" name="password_confirmation" id="password_confirmation" placeholder="Confirmar senha" bcrypt><br><br>
+        <input type="password" name="password_confirmation" id="password_confirmation" placeholder="Confirmar senha" bcrypt required><br><br>
 
         <button type="submit" class="btn btn-success">Cadastrar</button>
     </form>
