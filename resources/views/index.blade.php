@@ -16,8 +16,8 @@
         <a href="https://infus.inf.br/">
             <button class="btn btn-info me-2"><i class="bi bi-info-lg"></i></button>
         </a>
-        <a href="{{ route('registro')}}">
-            <button class="btn btn-primary me-2"><i class="bi bi-plus-square"></i></button>
+        <a href="{{ route('usuario')}}">
+            <button class="btn btn-primary me-2">Usuários</button>
         </a>
     </nav>
 

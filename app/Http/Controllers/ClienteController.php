@@ -6,7 +6,6 @@ use App\Models\Cliente;
 use App\Models\Permissao;
 use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
@@ -18,12 +17,44 @@ class ClienteController extends Controller
         return view('index', compact('clientes'));
     }
 
-    public function registro() 
+    public function usuario()
+    {
+        $usuarios = User::paginate(10);
+        return view('usuario', compact('usuarios'));
+    }
+
+    public function destroy($id)
+    {
+        if (!$usuarios = User::find($id))
+            return redirect()->route('usuario');
+
+        $usuarios->delete();
+
+        return redirect('usuario');
+    }
+
+    public function edit($id)
+    {
+        if (!$usuarios = User::find($id))
+        return redirect()->route('usuario');
+
+        return view('edit', compact('usuarios'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        if (!$usuarios = User::find($id))
+        return redirect()->route('usuario');
+
+        dd($request->all());
+    }
+
+    public function registro()
     {
         return view('registro');
     }
 
-    public function store(Request $request) 
+    public function store(Request $request)
     {
         $data = $request->all();
         $data['password'] = Hash::make($data['password']);
@@ -84,5 +115,5 @@ class ClienteController extends Controller
                 $clientes = Cliente::where('data_cadastro', 'LIKE', "%{$filtro}%")->paginate($paginacao);
         }
         return view('index', compact('clientes'));
-    }      
+    }
 }
