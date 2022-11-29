@@ -3,8 +3,17 @@
 @section('content')
 
     <thead>
-        <h1>Cadastrar usuário</h1>
-    </thead>
+        <div class="row">
+            <div class="col">
+                <a href="{{ route('index') }}">
+                    <button class="btn btn-primary mt-3"><i class="bi bi-house"></i> Voltar</button>
+                </a>
+            </div>
+            <div class="col-8">
+                <h1>Cadastrar usuário</h1>
+            </div>
+        </div>
+    </thead><br>
 
     <form action="/registrar" method="POST">
         @csrf
@@ -29,23 +38,7 @@
             </div>
         </div>
 
-        <button type="submit" class="btn btn-success mt-3">Cadastrar</button>
-        {{--
-            <label>Nome:</label>
-            <input type="text" name="name" id="name" placeholder="Nome"><br><br>
+        <button type="submit" class="btn btn-success mt-3"><i class="bi bi-check-lg"></i> Cadastrar</button>
 
-            <label>Email:</label>
-            <input type="text" name="email" id="email" placeholder="E-mail" required><br><br>
 
-            <label>Senha:</label>
-            <input type="password" name="password" id="password" placeholder="Senha" bcrypt required><br><br>
-
-            <label>Confirmar senha:</label>
-            <input type="password" name="password_confirmation" id="password_confirmation" placeholder="Confirmar senha"
-                bcrypt required><br><br>
-
-            <button type="submit" class="btn btn-success">Cadastrar</button>
-
-        </form>
-    </table> --}}
     @endsection
