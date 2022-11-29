@@ -2,7 +2,7 @@
 @section('title', 'Lista de clientes')
 @section('content')
 
-    <nav class="mb-3 navbar navbar-expand-lg bg-light">
+    <nav class="mt-3 mb-3 navbar navbar-expand-lg bg-light" name="cabecalho" id="cabecalho">
         <div class="container-fluid">
             <input type="image" src="{{ url('../images/logo.png') }}" href="{{route('index')}}"></input>
         </div>
@@ -17,7 +17,7 @@
             <button class="btn btn-info me-2"><i class="bi bi-info-lg"></i></button>
         </a>
         <a href="{{ route('registro')}}">
-            <button class="btn btn-primary"><i class="bi bi-plus-square"></i></button>
+            <button class="btn btn-primary me-2"><i class="bi bi-plus-square"></i></button>
         </a>
     </nav>
 
@@ -42,7 +42,7 @@
                         </select>
                         <input required form="frmFiltro" id="filtro" name="filtro" type="text" class="form-control"
                             aria-describedby="select_filtro" aria-describedby="btnFiltro" style="width: 60%;">
-                        <button form="frmFiltro" type="submit" id="btnFiltro" class="btn btn-outline-info"
+                        <button form="frmFiltro" type="submit" id="btnFiltro" class="btn btn-info"
                             style="width: 20%;">Filtrar</button>
                     </div>
                 </form>
@@ -77,7 +77,7 @@
                                  echo ((isset($cliente->Permissao->ativo)) && ($cliente->Permissao->ativo === 1)) ? '<i class="fs-3 mb-2 bi bi-check2-square" width="16" height="16"></i>' : ''; 
                                  @endphp
                             </td>
-                            <td><a class="btn btn-outline-info" href="{{ route('show', $cliente->id) }}">Detalhes</a></td>
+                            <td><a class="btn btn-success" href="{{ route('show', $cliente->id) }}">Detalhes</a></td>
                         </tr>
                     </tbody>
                 @endforeach

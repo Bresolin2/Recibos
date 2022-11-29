@@ -25,17 +25,15 @@ class ClienteController extends Controller
 
     public function store(Request $request) 
     {
-        // dd($request->all());
-        $senha = Hash::make($request->senha);
-        User::create($request->all());
-       
+        $data = $request->all();
+        $data['password'] = Hash::make($data['password']);
 
+        User::create($data);
         return redirect('cliente');
     }
 
     public function show($id)
     {
-        //$clientes = Cliente::where('id', $id)->get();
         if (!$clientes = Cliente::find($id))
             return redirect()->route('index');
 

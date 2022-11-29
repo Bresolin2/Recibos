@@ -15,14 +15,18 @@
 
     <meta name="csrf-token" content="{{ Session::token() }}">
 
-
     <title>@yield('title')</title>
     <link rel="shortcut icon" href="{{ url('../images/favicon.ico') }}" type="image/png">
 </head>
+<style>
+    body {
+        background-color: rgb(242, 255, 251);
+    }
+    
+</style>
 
 <body class="bg-gray">
-    <div class="container mx-auto px-4 py-8">
-        
+    <div class="container mx-auto px-4 py-8 mt-3">
         @yield('content')
     </div>
 </body>
